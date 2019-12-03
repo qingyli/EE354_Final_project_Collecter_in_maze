@@ -65,25 +65,25 @@ module vga_demo(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, Sw2, Sw1,S
 	reg [9:0] position, position1;
 	reg tch, tch1, tch2, tch3;
 	wire up, right, left, down, up1, right1, left1, down1, up2, right2, left2, down2, up3, right3, left3, down3;
-	assign up = position < 66;
-	assign right = position1 > 54;
-	assign left = position1 < 66;
-	assign down = position >54;
+	assign up = position <= 66;
+	assign right = position1 >= 54;
+	assign left = position1 <= 66;
+	assign down = position >= 54;
 	
-	assign up1 = position < 460;
-	assign right1 = position1 > 54;
-	assign left1 = position1 < 66;
-	assign down1 = position >448;
+	assign up1 = position <= 460;
+	assign right1 = position1 >= 54;
+	assign left1 = position1 <= 66;
+	assign down1 = position >= 448;
 	
-	assign up2 = position < 66;
-	assign right2 = position1 > 558;
-	assign left2 = position1 < 570;
-	assign down2 = position > 54;
+	assign up2 = position <= 66;
+	assign right2 = position1 >= 558;
+	assign left2 = position1 <= 570;
+	assign down2 = position >= 54;
 	
-	assign up3 = position < 460;
-	assign right3 = position1 > 558;
-	assign left3 = position1 < 570;
-	assign down3 = position > 448;
+	assign up3 = position <= 460;
+	assign right3 = position1 >= 558;
+	assign left3 = position1 <= 570;
+	assign down3 = position >= 448;
 	
 	wire flag = (CounterY >= 56 && CounterY <= 64 && CounterX >= 56 && CounterX <= 64);
 	wire flag1 = (CounterY >= 450 && CounterY <= 458 && CounterX >= 56 && CounterX <= 64);
